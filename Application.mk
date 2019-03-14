@@ -10,7 +10,8 @@
 
 NDK_TOOLCHAIN_VERSION :=#(4.6 4.8 4.9)
 APP_BUILD_SCRIPT := Android.mk
-APP_ABI          := armeabi-v7a#(32_bit(armeabi armeabi-v7a x86 mips), 64_bit(arm64-v8a x86_64 mips64))
+#CHANGED TO SUPPORT ALL APIS         APP_ABI          := armeabi-v7a#(32_bit(armeabi armeabi-v7a x86 mips), 64_bit(arm64-v8a x86_64 mips64))
+APP_ABI          := all
 APP_PLATFORM     := android-21# "5.0" (3~21)
 APP_STL          := gnustl_static#(system stlport_static stlport_shared gnustl_static gnustl_shared \
                                    gabi++_static gabi++_shared c++_static c++_shared)

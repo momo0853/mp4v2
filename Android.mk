@@ -128,6 +128,31 @@ libmp4v2_la_SOURCES += \
     libutil/other.cpp          \
 
 
+#---------- Shared Library ----------#
+
+include $(CLEAR_VARS)
+LOCAL_MODULE     := libmp4v2
+#LOCAL_ARM_MODULE := arm
+
+LOCAL_CFLAGS := -fno-rtti -fexceptions
+#LOCAL_EXPORT_CFLAGS := $(LOCAL_CFLAGS)
+LOCAL_SRC_FILES := $(libmp4v2_la_SOURCES)
+
+LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/include \
+	$(LOCAL_PATH)/vstudio9.0/include \
+	$(LOCAL_PATH)/libutil \
+	$(LOCAL_PATH)/libutil/include \
+	$(LOCAL_PATH)/libplatform \
+	$(LOCAL_PATH)/libplatform/include \
+	$(LOCAL_PATH)
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
+
+# Include -llog for the __android_log_print implementation
+LOCAL_LDLIBS := -llog -lz
+include $(BUILD_SHARED_LIBRARY)
+
+
 #---------- static module ----------#
 
 include $(CLEAR_VARS)
